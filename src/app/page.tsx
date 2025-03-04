@@ -7,12 +7,15 @@ export default function Home() {
       <div>
         <Image
           className="animate-bounce"
-          src="/gym_club_logo.png"
+          src="/alter.png"
           alt="Logo"
           width={300}
           height={300}
         />
       </div>
+      <p className="mb-4 font-extralight ">
+        Crie sua cartilha de treino com uma IA
+      </p>
       <Link href="/form">
         <button className="uiverse">
           <div className="wrapper">
