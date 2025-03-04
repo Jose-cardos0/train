@@ -5,7 +5,6 @@ import jsPDF from "jspdf";
 import Link from "next/link";
 
 const API_KEY = "AIzaSyD2DGLj6TrFyuU7rsigVe4UCIGmcKkzw-g";
-const API_URL = "https://api-traning.vercel.app/api";
 const genAI = new GoogleGenerativeAI(API_KEY);
 
 export default function FormData() {
