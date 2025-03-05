@@ -24,7 +24,8 @@ export default function FormData() {
      Ele frequenta a academia ${frequencia} e tem o foco de ${objetivo}. 
      Monte um treino 
      detalhado com as quantidades
-     de repetição e progressão de carga adequada semanalmente.`;
+     de repetição e progressão de carga adequada semanalmente. Lembre-se que se o ${sexo} for feminino o treino deve
+     ser focado em inferiores. Aproveite e monte uma dieta baseada no IMC ${altura}, ${peso} e ${objetivo}. Coloque a dieta abaixo da cartilha de treino.`;
 
     setLoading(true);
 
@@ -71,7 +72,8 @@ export default function FormData() {
             <div className="universe"></div>
           </div>
           <p className="pt-8 font-thin text-xs ml-2 animate-pulse text-center ">
-            Analisando dados <br /> fornecidos com a IA.
+            Aguarde a IA esta <br />
+            Analisando os dados...
           </p>
         </section>
       ) : (
@@ -99,8 +101,8 @@ export default function FormData() {
           </button>
           <div>
             <p className="text-center font-extralight text-xs mt-4 text-gray-400">
-              PDF gerado com sucesso <br />
-              acesse seus downloads
+              PDF gerado com sucesso, <br />
+              acesse seus downloads.
             </p>
           </div>
 
@@ -223,7 +225,7 @@ export default function FormData() {
                 Hipertrofia
               </option>
               <option className="bg-black text-sm" value="Perca de peso">
-                Perca de peso
+                Pedca de peso
               </option>
               <option className="bg-black text-sm" value="Manutenção da saúde">
                 Manutenção da saúde
