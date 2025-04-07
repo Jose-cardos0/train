@@ -17,7 +17,9 @@ export default function FormData() {
   const [altura, setAltura] = useState("");
   const [respostaIa, setRespostaIa] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [problemSaude, setProblemSaude] = useState("");
+  const [problemSaude, setProblemSaude] = useState(
+    "Não tenho nem um problema de saúde"
+  );
   const [alimentos, setAlimentos] = useState("");
   const [checkedSim, setCheckedSim] = useState(false);
   const [checkedNao, setCheckedNao] = useState(true);
@@ -50,15 +52,14 @@ export default function FormData() {
     pdf.setFontSize(9);
 
     // Adicionar o texto ao PDF em várias páginas
-    const linhas = texto.split("\n");
+    const linhas = pdf.splitTextToSize(texto, 170); // largura máxima em pontos
     let y = 10;
     for (const linha of linhas) {
       if (y > 250) {
         pdf.addPage();
         y = 10;
       }
-      const larguraMaxima = 170; // em pontos (aproximadamente 60mm)
-      pdf.text(linha, 15, y, { maxWidth: larguraMaxima }); // Definindo a largura máxima do texto
+      pdf.text(linha, 15, y);
       y += 5;
     }
 
@@ -210,6 +211,12 @@ export default function FormData() {
                 onChange={(e) => setFrequencia(e.target.value)}
               >
                 <option className="bg-black" value=""></option>
+                <option
+                  className="bg-black text-sm"
+                  value="não faço ne um exercício físico"
+                >
+                  Não me exercito.
+                </option>
                 <option className="bg-black text-sm" value="7 dias">
                   7 dias na semana
                 </option>
@@ -347,7 +354,6 @@ export default function FormData() {
                 </p>
                 <input
                   className="w-full border-b outline-none text-sm text-gray-500 py-2 "
-                  required
                   type="text"
                   name="saude"
                   placeholder="Qual seu problema de saúde?"
@@ -359,6 +365,7 @@ export default function FormData() {
                 Quais alimentos você quer incluir em sua dieta?
               </p>
               <textarea
+                required
                 className="w-full bg-gray-800 rounded-lg text-xs text-gray-500 p-2 mt-2 mb-6"
                 value={alimentos}
                 onChange={(e) => setAlimentos(e.target.value)}
